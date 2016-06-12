@@ -6,170 +6,209 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<style>
+		/* Clear slide */
+		.slide.clear {
+			padding: 0;
+		}
+		/* Cover background image */
+		.cover-bg {
+			padding: 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50%;
+		}
+		.contain-bg {
+			padding: 0;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 50%;
+		}
+		/* Remove arrow */
+		.slide::after {
+			display: none;
+		}
+		/* Slide with narrow margins */
+		.slide.narrow-margins {
+			padding: 53px 80px 0;
+		}
+
+		.slide_colorful h2 {
+			color: white;
+		}
+		.slide_theme_turquoise {
+			background-color: #2db2bf;
+		}
+		.slide_theme_raspberry {
+			background-color: #c50050;
+		}
+		.slide_theme_violet {
+			background-color: #8939a9;
+		}
+		.slide_theme_green {
+			background-color: #359c69;
+		}
+		.slide_theme_light-green {
+			background-color: #7ea91c;
+		}
+		.slide_theme_orange {
+			background-color: #E67014;
+		}
+
+		.slide h3 {
+		    color: #585a5e;
+    		font: 700 45px/1 PT Sans Narrow,sans-serif;
+		}
+
+		/* Code */
+		.slide .no-counter-code code::before {
+			display: none;
+		}
+		.split-code {
+    		float: left;
+    	}
+    	.split-code:first-child {
+    		width: 50%;
+    		margin-right: 30px;
+    	}
+    	.js-string {
+    		color: darkgoldenrod;
+    	}
+    	.js-boolean, .js-number {
+    		color: darkviolet;
+    	}
+    	.js-comment {
+    		color: #999;
+    	}
+    	.js-keyword {
+    		color: royalblue;
+    	}
+    	.js-return {
+    		color: hotpink;
+    	}
+    	.html-tag {
+    		color: hotpink;
+    	}
+    	.html-attr {
+    		color: forestgreen;
+    	}
+    	.html-attr-val {
+    		color: darkgoldenrod;
+    	}
+    	.cl-grey {
+			color: #999;
+		}
+		.cl-red {
+			color: #c00;
+		}
+
+	</style>
 </head>
 <body class="shower list">
 	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
+		<h1>Офлайн-веб</h1>
+		<p>Vladimir Rakchaev, NBCO Yandex.Money LLC</p>
 	</header>
-	<section class="slide" id="cover">
-		<h2>Shower Presentation Engine</h2>
-		<p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-		<img src="pictures/cover.jpg" alt="" class="cover">
-		<!--
-			To apply styles to the certain slides
-			set slide ID to get needed elements
-			-->
+	<section class="slide cover-bg" style="background-image: url(pictures/cubes.jpg)" id="title">
 		<style>
-			#cover h2 {
-				margin:30px 0 0;
-				color:#FFF;
-				text-align:center;
-				font-size:70px;
-				}
-			#cover p {
-				margin:10px 0 0;
-				text-align:center;
-				color:#FFF;
-				font-style:italic;
-				font-size:20px;
-				}
-				#cover p a {
-					color:#FFF;
-					}
+		#title h2 {
+			color: #000000;
+			text-shadow: 0px 0px 80px #fff, 0px 0px 80px #fff;
+		}
+		#title .footer {
+			margin-bottom: 17px;
+			width: 100%;
+			padding: 0 40px;
+			bottom: 0;
+			position: absolute;
+			font-size: 55px;
+			color: #000;
+			text-shadow: 0px 0px 80px #fff;
+		}
+		#title .footer__item {
+			line-height: 65px;
+			font-weight: bold;
+		}
 		</style>
+		<h2 class="shout">Офлайн-веб</h2>
+		<div class="footer">
+			<div class="footer__item" style="float: left;">Владимир Ракчаев</div>
+			<div class="footer__item" style="float: right;">@rakchaev</div>
+		</div>
 	</section>
-	<section class="slide">
-		<h2>Shower key features</h2>
-		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Офлайн еще существует!</h2>
 	</section>
-	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Что у нас есть?</h2>
 	</section>
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-	<section class="slide">
-		<h2>All kind of lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
-		</ol>
-	</section>
-	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
-	</section>
-	<section class="slide">
-		<h2>Code samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+	<section class="slide cover-bg" style="background-image: url(pictures/w3c-html5.png)"></section>
+	<section class="slide cover-bg" style="background-image: url(pictures/w3c-offline-apps.png)"></section>
+	<section class="slide" style="padding-top: 15px">
+		<pre class="no-counter-code" style="font-size: 37px;">
+			<code><span class="js-comment">app.html</span></code>
+			<code>&lt;<span class="html-tag">html</span> <span class="html-attr">manifest</span>=<span class="html-attr-val">&quot;offline.appcache&quot;</span>&gt;</code>
+		</pre>
+		<pre class="no-counter-code" style="font-size: 37px;">
+			<code><span class="js-comment">offline.appcache</span></code>
+			<code>CACHE MANIFEST</code>
+			<code>app.html</code>
+			<code>app.css</code>
+			<code>app.js</code>
 		</pre>
 	</section>
+	<section class="slide cover-bg" style="background-image: url(pictures/caniuse-offline-apps.png)"></section>
 	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
+		<h2 class="shout"><a href="http://alistapart.com/article/application-cache-is-a-douchebag">Application Cache is a Douchebag</a></h2>
 	</section>
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<img src="pictures/picture.jpg" alt="" class="cover">
+	<section class="slide cover-bg" style="background-image: url(pictures/whatwg-offline-apps.png)"></section>
+	<section class="slide cover-bg" style="background-image: url(pictures/caniuse-sw.png)"></section>
+	<section class="slide">
+		<img src="pictures/sw-lifecycle.png" class="cover logo" style="left: 45%">
+	</section>
+
+	<section class="slide cover-bg" style="background-image: url(pictures/cat.jpg)" id="subbotnik">
 		<style>
-			#picture h2 {
-				color:#FFF;
-				}
+			#subbotnik h2 {
+				color: #fff;
+				text-shadow: 0 0 30px #000;
+			}
 		</style>
+		<h2 class="shout next">Субботник!</h2>
 	</section>
 	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
+		<h2>Зачем?</h2>
+		<ul>
+			<li class="next">Инструмент под задачу</li>
+			<li class="next">Поддержка проекта</li>
+		</ul>
+	</section>
+	<section class="slide narrow-margins">
+		<h3>Минифкация js</h3>
+		<h2 class="shout next"><a href="https://github.com/rakchaev/enb-uglifyjs">enb-uglifyjs</a></h2>
 	</section>
 	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
+		<h2 class="shout"><a href="https://github.com/MrKashlakov/enb-transform-flow">enb-transform-flow</a></h2>
 	</section>
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
+	<section class="slide">
+		<pre>
+			<code>module.exports = <span class="js-keyword">function</span>(config) {</code>
+			<code>	config.includeConfig(<span class="js-string">'enb-bem-specs'</span>);</code>
+			<code></code>
+			<code>	<span class="js-keyword">var</span> specs = config.module(<span class="js-string">'enb-bem-specs'</span>)</code>
+			<code>			.createConfigurator(<span class="js-string">'specs'</span>);</code>
+			<code>	specs.configure({<span class="js-comment">...</span>});</code>
+			<code>};</code>
+		</pre>
 	</section>
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
+	<section class="slide cover-bg" style="background-image: url(pictures/cubes.jpg)" id="end">
 		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
+		#end h2 {
+			color: #000000;
+			text-shadow: 0px 0px 80px #fff, 0px 0px 80px #fff;
+		}
 		</style>
+		<h2 class="shout">Вопросы</h2>
 	</section>
 	<p class="badge">
 		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
