@@ -142,6 +142,9 @@
 	<section class="slide slide_colorful slide_theme_turquoise">
 		<h2 class="shout">Что у нас есть?</h2>
 	</section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Что у нас есть?</h2>
+	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/w3c-html5.png)"></section>
 	<section class="slide cover-bg" style="background-image: url(pictures/w3c-offline-apps.png)"></section>
 	<section class="slide" style="padding-top: 15px">
@@ -162,10 +165,117 @@
 		<h2 class="shout"><a href="http://alistapart.com/article/application-cache-is-a-douchebag">Application Cache is a Douchebag</a></h2>
 	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/whatwg-offline-apps.png)"></section>
-	<section class="slide cover-bg" style="background-image: url(pictures/caniuse-sw.png)"></section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Service Workers</h2>
+	</section>
+	<section class="slide cover-bg" style="background-image: url(pictures/w3c-sw.png)"></section>
+	<section class="slide" style="padding-top: 180px;">
+		<blockquote>Developers using the HTML5 Application Cache have also <a href="http://alistapart.com/article/application-cache-is-a-douchebag">reported that several attributes</a> of the design contribute to unrecoverable errors. A key design principle of the service worker is that errors should always be recoverable.</blockquote>
+	</section>
+	<section class="slide">
+		<h2>Service Worker</h2>
+		<p class="next">Скрипт, выполняемый браузером в фоне отдельно от веб-страниц, умеющий перехватывать и обрабатывать сетевые запросы и управлять кэшем ответа.</p>
+	</section>
+	<section class="slide">
+		<h2>Service Worker</h2>
+		<ul>
+			<li class="next">JS Worker. Не имеет прямого доступа к DOM. Но может взаимодействовать со страницами через <code>postMessage</code>-интерфейс.</li>
+			<li class="next">Network proxy. Может управлять обработкой сетевых запросов ваших страниц.</li>
+			<li class="next">Завершается, когда не используется, и перезапускается, когда нужен. Нет глобального стейта! Для сохранения состояния между перезапусками есть доступ к <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a> API.</li>
+		</ul>
+	</section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Жизненный цикл SW</h2>
+	</section>
+	<section class="slide">
+		<h2>Установка</h2>
+		<ul>
+			<li class="next">[Для установки SW на сайт] Нужно зарегистрировать SW в JS страницы.</li>
+			<li class="next">Браузер начнет установку на фоне.</li>
+			<li class="next">Можно закэшировать некоторые ресурсы.</li>
+			<li class="next">SW установлен, только если все нужные файлы загрузились и закэшировались.</li>
+			<li class="next">Иначе, этап установки фэйлится, но браузер будет пытаться еще в следующий раз.</li>
+			<li class="next">Успешная установка гарантирует, что в кэше есть все необходимые ресурсы.</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Активация</h2>
+		<ul>
+			<li class="next">Отличная возможность разобраться со старым кэшем при обновлении SW.</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Управление</h2>
+		<ul>
+			<li class="next">SW управляет всем страницами в его скоупе.</li>
+			<li class="next">Зарегистрировавшая SW страница станет под его управлением только после обновления.</li>
+			<li class="next">SW может
+				<ul>
+					<li class="next">обрабатывать <code>fetch</code> и <code>message</code> события сетевых запросов и сообщений ваших страниц;</li>
+					<li class="next">быть отключен браузером для сохранения памяти.</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
 	<section class="slide">
 		<img src="pictures/sw-lifecycle.png" class="cover logo" style="left: 45%">
 	</section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">А вот и код</h2>
+	</section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Регистрируем</h2>
+	</section>
+	<section class="slide" style="padding-top: 45px">
+		<pre>
+			<code>if ('serviceWorker' in navigator) {</code>
+			<code>  navigator.serviceWorker.register('/sw.js').then((reg) => {</code>
+			<code>    <span class="js-comment">// Registration was successful</span></code>
+			<code>    console.log(`ServiceWorker registration successful ` +</code>
+			<code>        `with scope: ${reg.scope}`);</code>
+			<code>  }).catch((err) => {</code>
+			<code>    <span class="js-comment">// registration failed :(</span></code>
+			<code>    console.log(`ServiceWorker registration failed: ${err}`);</code>
+			<code>  });</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Регистрируем</h2>
+		<ul>
+			<li class="next">Повторная регистрация&nbsp;&mdash; не страшно!</li>
+			<li class="next">Не забываем про скоуп!</li>
+		</ul>
+	</section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Кэшируем нужное</h2>
+	</section>
+	<section class="slide" style="padding-top: 5px">
+		<pre>
+			<code>var CACHE_NAME = 'my-site-cache-v1';</code>
+			<code>var urlsToCache = [</code>
+			<code>  '/',</code>
+			<code>  '/styles/main.css',</code>
+			<code>  '/script/main.js'</code>
+			<code>];</code>
+			<code></code>
+			<code>self.addEventListener('install', function(event) {</code>
+			<code>  // Perform install steps</code>
+			<code>  event.waitUntil(</code>
+			<code>    caches.open(CACHE_NAME)</code>
+			<code>      .then(function(cache) {</code>
+			<code>        console.log('Opened cache');</code>
+			<code>        return cache.addAll(urlsToCache);</code>
+			<code>      })</code>
+			<code>  );</code>
+			<code>});</code>
+		</pre>
+	</section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Перехватываем запросы</h2>
+	</section>
+
+	<section class="slide cover-bg" style="background-image: url(pictures/caniuse-sw.png)"></section>
 
 	<section class="slide cover-bg" style="background-image: url(pictures/cat.jpg)" id="subbotnik">
 		<style>
