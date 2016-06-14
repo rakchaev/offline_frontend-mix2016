@@ -142,9 +142,6 @@
 	<section class="slide slide_colorful slide_theme_turquoise">
 		<h2 class="shout">Что у нас есть?</h2>
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
-		<h2 class="shout">Что у нас есть?</h2>
-	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/w3c-html5.png)"></section>
 	<section class="slide cover-bg" style="background-image: url(pictures/w3c-offline-apps.png)"></section>
 	<section class="slide" style="padding-top: 15px">
@@ -182,6 +179,7 @@
 			<li class="next">JS Worker. Не имеет прямого доступа к DOM. Но может взаимодействовать со страницами через <code>postMessage</code>-интерфейс.</li>
 			<li class="next">Network proxy. Может управлять обработкой сетевых запросов ваших страниц.</li>
 			<li class="next">Завершается, когда не используется, и перезапускается, когда нужен. Нет глобального стейта! Для сохранения состояния между перезапусками есть доступ к <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a> API.</li>
+			<li class="next">Работает только по HTTPS.</li>
 		</ul>
 	</section>
 	<section class="slide slide_colorful slide_theme_turquoise">
@@ -344,50 +342,52 @@ Once your new service worker takes control, its activate event will be fired.</l
 			<code>)});</code>
 		</pre>
 	</section>
-http://www.html5rocks.com/en/tutorials/service-worker/introduction/
-Introduction to Service Worker
-
-https://jakearchibald.com/2014/offline-cookbook/
-The offline cookbook
-
-https://www.w3.org/TR/service-workers/
-Service Workers
-
-	<section class="slide cover-bg" style="background-image: url(pictures/caniuse-sw.png)"></section>
-
-	<section class="slide cover-bg" style="background-image: url(pictures/cat.jpg)" id="subbotnik">
-		<style>
-			#subbotnik h2 {
-				color: #fff;
-				text-shadow: 0 0 30px #000;
-			}
-		</style>
-		<h2 class="shout next">Субботник!</h2>
+	<section class="slide">
+		<h2 class="shout"><a href="http://www.html5rocks.com/en/tutorials/service-worker/introduction/">Introduction to Service Worker</a></h2>
+	</section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Стратегии</h2>
 	</section>
 	<section class="slide">
-		<h2>Зачем?</h2>
+		<h2>Стратегии кэширования</h2>
 		<ul>
-			<li class="next">Инструмент под задачу</li>
-			<li class="next">Поддержка проекта</li>
+			<li class="next">При установке блокирующее</li>
+			<li class="next">При установке неблокирующее</li>
+			<li class="next">По сетевому запросу (перед ответом или ревалидацией)</li>
+			<li class="next">На действия пользователя</li>
 		</ul>
 	</section>
-	<section class="slide narrow-margins">
-		<h3>Минифкация js</h3>
-		<h2 class="shout next"><a href="https://github.com/rakchaev/enb-uglifyjs">enb-uglifyjs</a></h2>
+	<section class="slide">
+		<h2>Стратегии обработки запроса</h2>
+		<ul>
+			<li class="next">Только кэш</li>
+			<li class="next">Только сеть (аналитика, POST)</li>
+			<li class="next">Кэш, потом сеть</li>
+			<li class="next">Используем кэш, потом сеть</li>
+			<li class="next">Сеть, потом кэш (обновляемые ресурсы, не привязанные к версии сайта)</li>
+			<li class="next">Гонка</li>
+			<li class="next">Фолбэк (/offline.html)</li>
+		</ul>
 	</section>
 	<section class="slide">
-		<h2 class="shout"><a href="https://github.com/MrKashlakov/enb-transform-flow">enb-transform-flow</a></h2>
+		<h2 class="shout"><a href="https://jakearchibald.com/2014/offline-cookbook/">The offline cookbook</a></h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout"><a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox</a></h2>
 	</section>
 	<section class="slide">
 		<pre>
-			<code>module.exports = <span class="js-keyword">function</span>(config) {</code>
-			<code>	config.includeConfig(<span class="js-string">'enb-bem-specs'</span>);</code>
-			<code></code>
-			<code>	<span class="js-keyword">var</span> specs = config.module(<span class="js-string">'enb-bem-specs'</span>)</code>
-			<code>			.createConfigurator(<span class="js-string">'specs'</span>);</code>
-			<code>	specs.configure({<span class="js-comment">...</span>});</code>
-			<code>};</code>
+			<code>importScripts('bower_components/sw-toolbox/sw-toolbox.js');</code>
+			<code>toolbox.precache(['/index.html', '/site.css', '/images/logo.png']);</code>
+			<code>toolbox.router.get('/myapp/index.html', toolbox.networkFirst);</code>
 		</pre>
+	</section>
+push notifications
+geofencing
+background syncs
+	<section class="slide cover-bg" style="background-image: url(pictures/caniuse-sw.png)"></section>
+	<section class="slide slide_colorful slide_theme_turquoise">
+		<h2 class="shout">Присоединяйся!</h2>
 	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/cubes.jpg)" id="end">
 		<style>
