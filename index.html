@@ -139,8 +139,35 @@
 	<section class="slide slide_colorful slide_theme_turquoise">
 		<h2 class="shout">Офлайн еще существует!</h2>
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
-		<h2 class="shout">Что у нас есть?</h2>
+	<section class="slide">
+		<img src="pictures/vk-1.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/vk-2.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/vk-3.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/vk-4.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/mail.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/telegram.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/twitter.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/web-1.png" class="cover logo">
+	</section>
+	<section class="slide">
+		<img src="pictures/web-2.png" class="cover logo">
+	</section>
+	<section class="slide slide_colorful slide_theme_raspberry">
+		<h2 class="shout">Что с этим делать?</h2>
 	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/w3c-html5.png)"></section>
 	<section class="slide cover-bg" style="background-image: url(pictures/w3c-offline-apps.png)"></section>
@@ -162,7 +189,7 @@
 		<h2 class="shout"><a href="http://alistapart.com/article/application-cache-is-a-douchebag">Application Cache is a Douchebag</a></h2>
 	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/whatwg-offline-apps.png)"></section>
-	<section class="slide slide_colorful slide_theme_turquoise">
+	<section class="slide slide_colorful slide_theme_green">
 		<h2 class="shout">Service Workers</h2>
 	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/w3c-sw.png)"></section>
@@ -182,18 +209,18 @@
 			<li class="next">Работает только по HTTPS.</li>
 		</ul>
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
+	<section class="slide slide_colorful slide_theme_violet">
 		<h2 class="shout">Жизненный цикл SW</h2>
 	</section>
 	<section class="slide">
 		<h2>Установка</h2>
 		<ul>
-			<li class="next">[Для установки SW на сайт] Нужно зарегистрировать SW в JS страницы.</li>
-			<li class="next">Браузер начнет установку на фоне.</li>
+			<li class="next">Зарегистрировать SW в JS страницы.</li>
+			<li class="next">Браузер начнет установку в фоне.</li>
 			<li class="next">Можно закэшировать некоторые ресурсы.</li>
 			<li class="next">SW установлен, только если все нужные файлы загрузились и закэшировались.</li>
 			<li class="next">Иначе, этап установки фэйлится, но браузер будет пытаться еще в следующий раз.</li>
-			<li class="next">Успешная установка гарантирует, что в кэше есть все необходимые ресурсы.</li>
+			<li class="next">Успешная установка гарантирует, что в кэше есть все необходимое.</li>
 		</ul>
 	</section>
 	<section class="slide">
@@ -218,22 +245,22 @@
 	<section class="slide">
 		<img src="pictures/sw-lifecycle.png" class="cover logo" style="left: 45%">
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
-		<h2 class="shout">А вот и код</h2>
+	<section class="slide slide_colorful slide_theme_light-green">
+		<h2 class="shout">В коде</h2>
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
+	<section class="slide slide_colorful slide_theme_orange">
 		<h2 class="shout">Регистрируем</h2>
 	</section>
 	<section class="slide" style="padding-top: 45px">
 		<pre>
-			<code>if ('serviceWorker' in navigator) {</code>
-			<code>  navigator.serviceWorker.register('/sw.js').then(reg => {</code>
+			<code><span class="js-keyword">if</span> (<span class="js-string">'serviceWorker'</span> <span class="js-keyword">in</span> navigator) {</code>
+			<code>  navigator.serviceWorker.register(<span class="js-string">'/sw.js'</span>).then(reg => {</code>
 			<code>    <span class="js-comment">// Registration was successful</span></code>
-			<code>    console.log(`ServiceWorker registration successful ` +</code>
-			<code>        `with scope: ${reg.scope}`);</code>
+			<code>    console.log(<span class="js-string">`ServiceWorker registration successful ` +</code>
+			<code>        <span class="js-string">`with scope: ${reg.scope}`</span>);</code>
 			<code>  }).catch(err => {</code>
 			<code>    <span class="js-comment">// registration failed :(</span></code>
-			<code>    console.log(`ServiceWorker registration failed: ${err}`);</code>
+			<code>    console.log(<span class="js-string">`ServiceWorker registration failed: ${err}`</span>);</code>
 			<code>  });</code>
 			<code>}</code>
 		</pre>
@@ -250,33 +277,33 @@
 	</section>
 	<section class="slide" style="padding-top: 25px">
 		<pre>
-			<code>var CACHE_NAME = 'my-site-cache-v1';</code>
-			<code>var urlsToCache = [</code>
-			<code>  '/',</code>
-			<code>  '/styles/main.css',</code>
-			<code>  '/script/main.js'</code>
+			<code><span class="js-keyword">var</span> CACHE_NAME = <span class="js-string">'my-site-cache-v1'</span>;</code>
+			<code><span class="js-keyword">var</span> urlsToCache = [</code>
+			<code>  <span class="js-string">'/'</span>,</code>
+			<code>  <span class="js-string">'/styles/main.css'</span>,</code>
+			<code>  <span class="js-string">'/script/main.js'</span></code>
 			<code>];</code>
-			<code>self.addEventListener('install', event => {</code>
+			<code>self.addEventListener(<span class="js-string">'install'</span>, event => {</code>
 			<code>  event.waitUntil(</code>
 			<code>    caches.open(CACHE_NAME).then(cache => {</code>
-			<code>      return cache.addAll(urlsToCache);</code>
+			<code>      <span class="js-return">return</span> cache.addAll(urlsToCache);</code>
 			<code>    });</code>
 			<code>  );</code>
 			<code>});</code>
 		</pre>
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
+	<section class="slide slide_colorful slide_theme_green">
 		<h2 class="shout">Перехватываем запросы</h2>
 	</section>
 	<section class="slide" style="padding-top: 45px">
 		<pre>
-			<code>self.addEventListener('fetch', event => {</code>
+			<code>self.addEventListener(<span class="js-string">'fetch'</span>, event => {</code>
 			<code>  event.respondWith(</code>
 			<code>    caches.match(event.request).then(response => {</code>
 			<code>      if (response) {</code>
-			<code>        return response;</code>
+			<code>        <span class="js-return">return</span> response;</code>
 			<code>      }</code>
-			<code>      return fetch(event.request);</code>
+			<code>      <span class="js-return">return</span> fetch(event.request);</code>
 			<code>    });</code>
 			<code>  );</code>
 			<code>});</code>
@@ -284,13 +311,13 @@
 	</section>
 	<section class="slide" style="padding-top: 45px">
 		<pre>
-			<code>self.addEventListener('fetch', event => {</code>
+			<code>self.addEventListener(<span class="js-string">'fetch'</span>, event => {</code>
 			<code>  event.respondWith(</code>
 			<code>    caches.match(event.request).then(response => {</code>
-			<code>      if (response) {</code>
-			<code>        return response;</code>
+			<code>      <span class="js-keyword">if</span> (response) {</code>
+			<code>        <span class="js-return">return</span> response;</code>
 			<code>      }</code>
-			<code>      return fetch(event.request)<mark>.then(...)</mark>;</code>
+			<code>      <span class="js-return">return</span> fetch(event.request)<mark>.then(...)</mark>;</code>
 			<code>    });</code>
 			<code>  );</code>
 			<code>});</code>
@@ -298,44 +325,76 @@
 	</section>
 	<section class="slide" style="padding-top: 25px">
 		<pre>
-			<code>var fetchRequest = <mark>event.request.clone()</mark>;</code>
-			<code>return fetch(<mark>fetchRequest</mark>).then(response => {</code>
-			<code>  if(!response || response.status !== 200 ||</code>
-			<code>        response.type !== 'basic') {</code>
-			<code>    return response;</code>
+			<code><span class="js-keyword">var</span> fetchRequest = event.request.clone();</code>
+			<code><span class="js-return">return</span> fetch(fetchRequest).then(response => {</code>
+			<code>  <span class="js-keyword">if</span> (!response || response.status !== <span class="js-number">200</span> ||</code>
+			<code>        response.type !== <span class="js-string">'basic'</span>) {</code>
+			<code>    <span class="js-return">return</span> response;</code>
 			<code>  }</code>
-			<code>  var responseToCache = <mark>response.clone()</mark>;</code>
+			<code>  <span class="js-keyword">var</span> responseToCache = response.clone();</code>
 			<code>  caches.open(CACHE_NAME).then(cache => {</code>
-			<code>    cache.put(<mark>event.request</mark>, responseToCache);</code>
+			<code>    cache.put(event.request, responseToCache);</code>
 			<code>  });</code>
-			<code>  return response;</code>
+			<code>  <span class="js-return">return</span> response;</code>
 			<code>}</code>
 		</pre>
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
-		<h2 class="shout">Обновляем SW</h2>
+	<section class="slide" style="padding-top: 25px">
+		<pre>
+			<code><span class="js-keyword">var</span> fetchRequest = <mark>event.request.clone()</mark>;</code>
+			<code><span class="js-return">return</span> fetch(<mark>fetchRequest</mark>).then(response => {</code>
+			<code>  <span class="js-keyword">if</span> (!response || response.status !== <span class="js-number">200</span> ||</code>
+			<code>        response.type !== <span class="js-string">'basic'</span>) {</code>
+			<code>    <span class="js-return">return</span> response;</code>
+			<code>  }</code>
+			<code>  <span class="js-keyword">var</span> responseToCache = response.clone();</code>
+			<code>  caches.open(CACHE_NAME).then(cache => {</code>
+			<code>    cache.put(<mark>event.request</mark>, responseToCache);</code>
+			<code>  });</code>
+			<code>  <span class="js-return">return</span> response;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide" style="padding-top: 25px">
+		<pre>
+			<code><span class="js-keyword">var</span> fetchRequest = event.request.clone();</code>
+			<code><span class="js-return">return</span> fetch(fetchRequest).then(response => {</code>
+			<code>  <span class="js-keyword">if</span> (!response || response.status !== <span class="js-number">200</span> ||</code>
+			<code>        response.type !== <span class="js-string">'basic'</span>) {</code>
+			<code>    <span class="js-return">return</span> response;</code>
+			<code>  }</code>
+			<code>  <span class="js-keyword">var</span> responseToCache = <mark>response.clone()</mark>;</code>
+			<code>  caches.open(CACHE_NAME).then(cache => {</code>
+			<code>    cache.put(event.request, <mark>responseToCache</mark>);</code>
+			<code>  });</code>
+			<code>  <span class="js-return">return</span> <mark>response</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide slide_colorful slide_theme_violet">
+		<h2 class="shout">Обновляем</h2>
 	</section>
 	<section class="slide">
-		<h2>Регистрируем</h2>
+		<h2>Обновляем</h2>
 		<ul>
-			<li class="next">Update your service worker JavaScript file.
-When the user navigates to your site, the browser tries to redownload the script file that defined the service worker in the background. If there is even a byte's difference in the service worker file compared to what it currently has, it considers it 'new'.
-Your new service worker will be started and the install event will be fired.
-At this point the old service worker is still controlling the current pages so the new service worker will enter a "waiting" state.
-When the currently open pages of your site are closed, the old service worker will be killed and the new service worker will take control.
-Once your new service worker takes control, its activate event will be fired.</li>
+			<li class="next">Обновляем наш Service Worker JS-файл.</li>
+			<li class="next">Пользователь заходит на наш сайт, браузер загружает в фоне файл, если его содержимое поменялось по сравнению с текущим.</li>
+			<li class="next">Новый SW запускается и тригерится событие установки.</li>
+			<li class="next">Старый SW управляет текущими страницами, новый в стадии ожидания.</li>
+			<li class="next">Когда открытые страницы закрываются, старый SW грохается и управление переходит новому.</li>
+			<li class="next">Новый SW тригерит событие активации.</li>
 		</ul>
 	</section>
 	<section class="slide" style="padding-top: 25px">
 		<pre>
-			<code>self.addEventListener('activate', event => {</code>
-			<code>  var cacheWhitelist = ['pages-cache-v1', 'posts-cache-v1'];</code>
+			<code>self.addEventListener(<span class="js-string">'activate'</span>, event => {</code>
+			<code>  <span class="js-keyword">var</span> cacheWhitelist = [<span class="js-string">'pages-cache-v1'</span>, <span class="js-string">'posts-cache-v1'</span>];</code>
 			<code>  event.waitUntil(</code>
 			<code>    caches.keys().then(cacheNames => {</code>
-			<code>      return Promise.all(</code>
+			<code>      <span class="js-return">return</span> Promise.all(</code>
 			<code>        cacheNames.map(cacheName => {</code>
-			<code>          if (cacheWhitelist.indexOf(cacheName) === -1) {</code>
-			<code>            return caches.delete(cacheName);</code>
+			<code>          <span class="js-keyword">if</span> (cacheWhitelist.indexOf(cacheName) === <span class="js-number">-1</span>) {</code>
+			<code>            <span class="js-return">return</span> caches.delete(cacheName);</code>
 			<code>          }</code>
 			<code>        });</code>
 			<code>  )});</code>
@@ -345,7 +404,7 @@ Once your new service worker takes control, its activate event will be fired.</l
 	<section class="slide">
 		<h2 class="shout"><a href="http://www.html5rocks.com/en/tutorials/service-worker/introduction/">Introduction to Service Worker</a></h2>
 	</section>
-	<section class="slide slide_colorful slide_theme_turquoise">
+	<section class="slide slide_colorful slide_theme_light-green">
 		<h2 class="shout">Стратегии</h2>
 	</section>
 	<section class="slide">
@@ -377,16 +436,38 @@ Once your new service worker takes control, its activate event will be fired.</l
 	</section>
 	<section class="slide">
 		<pre>
-			<code>importScripts('bower_components/sw-toolbox/sw-toolbox.js');</code>
-			<code>toolbox.precache(['/index.html', '/site.css', '/images/logo.png']);</code>
-			<code>toolbox.router.get('/myapp/index.html', toolbox.networkFirst);</code>
+			<code>importScripts(<span class="js-string">'bower_components/sw-toolbox/sw-toolbox.js'</span>);</code>
+			<code>toolbox.precache([</code>
+			<code>    <span class="js-string">'/index.html'</span>, </code>
+			<code>    <span class="js-string">'/site.css'</span>, </code>
+			<code>    <span class="js-string">'/images/logo.png'</span>]);</code>
+			<code>toolbox.router.get(<span class="js-string">'/myapp/index.html'</span>, </code>
+			<code>    toolbox.networkFirst);</code>
 		</pre>
 	</section>
-push notifications
-geofencing
-background syncs
+	<section class="slide">
+		<h2 class="shout">SW могут предоставлять контент из кэша.</h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout">Но что, если странице нужно что-то отправить на сервер?</h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout"><a href="https://developers.google.com/web/updates/2015/12/background-sync">Background Sync</a></h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout">Отправить сообщение с сервера в любой момент?</h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout"><a href="https://www.w3.org/TR/push-api/">Push API</a></h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout">Гео?</h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout"><a href="https://www.w3.org/TR/geofencing/">Geofencing API</a></h2>
+	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/caniuse-sw.png)"></section>
-	<section class="slide slide_colorful slide_theme_turquoise">
+	<section class="slide slide_colorful slide_theme_orange">
 		<h2 class="shout">Присоединяйся!</h2>
 	</section>
 	<section class="slide cover-bg" style="background-image: url(pictures/cubes.jpg)" id="end">
