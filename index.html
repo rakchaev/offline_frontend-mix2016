@@ -109,28 +109,89 @@
 		<h1>Офлайн-веб</h1>
 		<p>Vladimir Rakchaev, NBCO Yandex.Money LLC</p>
 	</header>
-	<section class="slide cover-bg" style="background-image: url(pictures/cubes.jpg)" id="title">
+	<section class="slide cover-bg" id="conf-title">
 		<style>
-		#title h2 {
-			color: #000000;
-			text-shadow: 0px 0px 80px #fff, 0px 0px 80px #fff;
+		#conf-title {
+			background-color: #E62884;
 		}
-		#title .footer {
-			margin-bottom: 17px;
-			width: 100%;
-			padding: 0 40px;
-			bottom: 0;
-			position: absolute;
-			font-size: 55px;
-			color: #000;
-			text-shadow: 0px 0px 80px #fff;
+		#conf-title .ym-logo {
+			margin-top: 50px;
+			margin-left: 243px;
 		}
-		#title .footer__item {
-			line-height: 65px;
-			font-weight: bold;
+		#conf-title .fmix-logo {
+			margin-top: 50px;
+			margin-left: 243px;
 		}
 		</style>
-		<h2 class="shout">Офлайн-веб</h2>
+		<div class="ym-logo">
+			<img src="pictures/ym-logo.svg" style="width: 315px"/>
+		</div>
+		<div class="fmix-logo">
+			<img src="pictures/fmix-logo.svg" style="width: 537px"/>
+		</div>
+	</section>
+	<section class="slide cover-bg" id="title">
+		<style>
+		#title {
+			background-color: #E62884;
+		}
+		#title .nameplate {
+			position: relative;
+			background-color: #030102;
+			color: #fff;
+			font-family: PT Sans Narrow, sans-serif;
+			margin-left: 80px;
+			margin-right: 80px;
+			margin-top: 135px;
+			font-size: 170px;
+			line-height: 1.6;
+			font-weight: bold;
+			text-align: center;
+		}
+		#title .nameplate::before {
+			content: '';
+			position: absolute;
+			border: 25px solid transparent;
+			border-left: 25px solid #E62884;
+			border-top: 25px solid #E62884;
+			left: 0;
+			top: 0;
+		}
+		#title .nameplate::after {
+			content: '';
+			position: absolute;
+			border: 25px solid transparent;
+			border-right: 25px solid #E62884;
+			border-bottom: 25px solid #E62884;
+			right: 0;
+			bottom: 0;
+		}
+		#title .footer {
+			margin-bottom: 50px;
+			width: 100%;
+			padding: 0 80px;
+			bottom: 0;
+			position: absolute;
+		}
+		#title .footer__item {
+			position: relative;
+			background-color: #030102;
+			color: #fff;
+			font-size: 45px;
+			line-height: 65px;
+			padding: 5px 20px;
+		}
+		#title .footer__item::before {
+			content: '';
+			position: absolute;
+			border: 8px solid transparent;
+			border-left: 8px solid #E62884;
+			border-top: 8px solid #E62884;
+			left: 0;
+			top: 0;
+		}
+		</style>
+		<div class="nameplate">Офлайн-веб</div>
 		<div class="footer">
 			<div class="footer__item" style="float: left;">Владимир Ракчаев</div>
 			<div class="footer__item" style="float: right;">@rakchaev</div>
@@ -176,7 +237,7 @@
 			<code><span class="js-comment">app.html</span></code>
 			<code>&lt;<span class="html-tag">html</span> <span class="html-attr">manifest</span>=<span class="html-attr-val">&quot;offline.appcache&quot;</span>&gt;</code>
 		</pre>
-		<pre class="no-counter-code" style="font-size: 37px;">
+		<pre class="no-counter-code next" style="font-size: 37px;">
 			<code><span class="js-comment">offline.appcache</span></code>
 			<code>CACHE MANIFEST</code>
 			<code>app.html</code>
@@ -287,7 +348,7 @@
 			<code>  event.waitUntil(</code>
 			<code>    caches.open(CACHE_NAME).then(cache => {</code>
 			<code>      <span class="js-return">return</span> cache.addAll(urlsToCache);</code>
-			<code>    });</code>
+			<code>    })</code>
 			<code>)});</code>
 		</pre>
 	</section>
@@ -303,7 +364,7 @@
 			<code>        <span class="js-return">return</span> response;</code>
 			<code>      }</code>
 			<code>      <span class="js-return">return</span> fetch(event.request);</code>
-			<code>    });</code>
+			<code>    })</code>
 			<code>  );</code>
 			<code>});</code>
 		</pre>
@@ -317,7 +378,7 @@
 			<code>        <span class="js-return">return</span> response;</code>
 			<code>      }</code>
 			<code>      <span class="js-return">return</span> fetch(event.request)<mark>.then(...)</mark>;</code>
-			<code>    });</code>
+			<code>    })</code>
 			<code>  );</code>
 			<code>});</code>
 		</pre>
@@ -395,7 +456,7 @@
 			<code>          <span class="js-keyword">if</span> (cacheWhitelist.indexOf(cacheName) === <span class="js-number">-1</span>) {</code>
 			<code>            <span class="js-return">return</span> caches.delete(cacheName);</code>
 			<code>          }</code>
-			<code>        });</code>
+			<code>        })</code>
 			<code>  )});</code>
 			<code>)});</code>
 		</pre>
@@ -448,6 +509,9 @@
 		<h2 class="shout">Демо</h2>
 	</section>
 	<section class="slide">
+		<h2 class="shout"><a href="https://github.com/rakchaev/sw-frontend-mix">sw-frontend-mix</a></h2>
+	</section>
+	<section class="slide">
 		<h2 class="shout">SW могут предоставлять контент из кэша.</h2>
 	</section>
 	<section class="slide">
@@ -472,14 +536,44 @@
 	<section class="slide slide_colorful slide_theme_orange">
 		<h2 class="shout">Присоединяйся!</h2>
 	</section>
-	<section class="slide cover-bg" style="background-image: url(pictures/cubes.jpg)" id="end">
+	<section class="slide cover-bg" id="end">
 		<style>
-		#end h2 {
-			color: #000000;
-			text-shadow: 0px 0px 80px #fff, 0px 0px 80px #fff;
+		#end {
+			background-color: #E62884;
+		}
+		#end .nameplate {
+			position: relative;
+			background-color: #030102;
+			color: #fff;
+			font-family: PT Sans Narrow, sans-serif;
+			margin-left: 200px;
+			margin-right: 200px;
+			margin-top: 135px;
+			font-size: 170px;
+			line-height: 1.6;
+			font-weight: bold;
+			text-align: center;
+		}
+		#end .nameplate::before {
+			content: '';
+			position: absolute;
+			border: 25px solid transparent;
+			border-left: 25px solid #E62884;
+			border-top: 25px solid #E62884;
+			left: 0;
+			top: 0;
+		}
+		#end .nameplate::after {
+			content: '';
+			position: absolute;
+			border: 25px solid transparent;
+			border-right: 25px solid #E62884;
+			border-bottom: 25px solid #E62884;
+			right: 0;
+			bottom: 0;
 		}
 		</style>
-		<h2 class="shout">Вопросы</h2>
+		<div class="nameplate">Вопросы</div>
 	</section>
 	<p class="badge">
 		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
