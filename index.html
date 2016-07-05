@@ -461,6 +461,18 @@
 			<code>)});</code>
 		</pre>
 	</section>
+	<section class="slide" style="padding-top: 25px">
+		<pre class="no-counter-code">
+			<code class="next"><span class="js-comment">app.js</span></code>
+			<code class="next">navigator.serviceWorker.register(<span class="js-string">'/sw.js'</span>)</code>
+		</pre>
+		<pre class="no-counter-code">
+			<code class="next"><span class="js-comment">sw.js</span></code>
+			<code class="next">self.addEventListener(<span class="js-string">'install'</span>, event => {...})</code>
+			<code class="next">self.addEventListener(<span class="js-string">'activate'</span>, event => {...})</code>
+			<code class="next">self.addEventListener(<span class="js-string">'fetch'</span>, event => {...})</code>
+		</pre>
+	</section>
 	<section class="slide">
 		<h2 class="shout"><a href="http://www.html5rocks.com/en/tutorials/service-worker/introduction/">Introduction to Service Worker</a></h2>
 	</section>
@@ -472,7 +484,7 @@
 		<ul>
 			<li class="next">При установке блокирующее</li>
 			<li class="next">При установке неблокирующее</li>
-			<li class="next">По сетевому запросу (перед ответом или ревалидацией)</li>
+			<li class="next">По сетевому запросу</li>
 			<li class="next">На действия пользователя</li>
 		</ul>
 	</section>
@@ -482,7 +494,7 @@
 			<li class="next">Только кэш</li>
 			<li class="next">Только сеть (аналитика, POST)</li>
 			<li class="next">Кэш, потом сеть</li>
-			<li class="next">Используем кэш, потом сеть</li>
+			<li class="next">Сразу кэш, потом сеть</li>
 			<li class="next">Сеть, потом кэш (обновляемые ресурсы, не привязанные к версии сайта)</li>
 			<li class="next">Гонка</li>
 			<li class="next">Фолбэк (/offline.html)</li>
