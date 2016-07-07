@@ -338,8 +338,8 @@
 	</section>
 	<section class="slide" style="padding-top: 25px">
 		<pre>
-			<code><span class="js-keyword">var</span> CACHE_NAME = <span class="js-string">'my-site-cache-v1'</span>;</code>
-			<code><span class="js-keyword">var</span> urlsToCache = [</code>
+			<code><span class="js-keyword">const</span> CACHE_NAME = <span class="js-string">'my-site-cache-v1'</span>;</code>
+			<code><span class="js-keyword">const</span> urlsToCache = [</code>
 			<code>  <span class="js-string">'/'</span>,</code>
 			<code>  <span class="js-string">'/styles/main.css'</span>,</code>
 			<code>  <span class="js-string">'/script/main.js'</span></code>
@@ -385,13 +385,13 @@
 	</section>
 	<section class="slide" style="padding-top: 25px">
 		<pre>
-			<code><span class="js-keyword">var</span> fetchRequest = event.request.clone();</code>
+			<code><span class="js-keyword">const</span> fetchRequest = event.request.clone();</code>
 			<code><span class="js-return">return</span> fetch(fetchRequest).then(response => {</code>
 			<code>  <span class="js-keyword">if</span> (!response || response.status !== <span class="js-number">200</span> ||</code>
 			<code>        response.type !== <span class="js-string">'basic'</span>) {</code>
 			<code>    <span class="js-return">return</span> response;</code>
 			<code>  }</code>
-			<code>  <span class="js-keyword">var</span> responseToCache = response.clone();</code>
+			<code>  <span class="js-keyword">const</span> responseToCache = response.clone();</code>
 			<code>  caches.open(CACHE_NAME).then(cache => {</code>
 			<code>    cache.put(event.request, responseToCache);</code>
 			<code>  });</code>
@@ -401,13 +401,13 @@
 	</section>
 	<section class="slide" style="padding-top: 25px">
 		<pre>
-			<code><span class="js-keyword">var</span> fetchRequest = <mark>event.request.clone()</mark>;</code>
+			<code><span class="js-keyword">const</span> fetchRequest = <mark>event.request.clone()</mark>;</code>
 			<code><span class="js-return">return</span> fetch(<mark>fetchRequest</mark>).then(response => {</code>
 			<code>  <span class="js-keyword">if</span> (!response || response.status !== <span class="js-number">200</span> ||</code>
 			<code>        response.type !== <span class="js-string">'basic'</span>) {</code>
 			<code>    <span class="js-return">return</span> response;</code>
 			<code>  }</code>
-			<code>  <span class="js-keyword">var</span> responseToCache = response.clone();</code>
+			<code>  <span class="js-keyword">const</span> responseToCache = response.clone();</code>
 			<code>  caches.open(CACHE_NAME).then(cache => {</code>
 			<code>    cache.put(<mark>event.request</mark>, responseToCache);</code>
 			<code>  });</code>
@@ -417,13 +417,13 @@
 	</section>
 	<section class="slide" style="padding-top: 25px">
 		<pre>
-			<code><span class="js-keyword">var</span> fetchRequest = event.request.clone();</code>
+			<code><span class="js-keyword">const</span> fetchRequest = event.request.clone();</code>
 			<code><span class="js-return">return</span> fetch(fetchRequest).then(response => {</code>
 			<code>  <span class="js-keyword">if</span> (!response || response.status !== <span class="js-number">200</span> ||</code>
 			<code>        response.type !== <span class="js-string">'basic'</span>) {</code>
 			<code>    <span class="js-return">return</span> response;</code>
 			<code>  }</code>
-			<code>  <span class="js-keyword">var</span> responseToCache = <mark>response.clone()</mark>;</code>
+			<code>  <span class="js-keyword">const</span> responseToCache = <mark>response.clone()</mark>;</code>
 			<code>  caches.open(CACHE_NAME).then(cache => {</code>
 			<code>    cache.put(event.request, <mark>responseToCache</mark>);</code>
 			<code>  });</code>
@@ -448,7 +448,7 @@
 	<section class="slide" style="padding-top: 25px">
 		<pre>
 			<code>self.addEventListener(<span class="js-string">'activate'</span>, event => {</code>
-			<code>  <span class="js-keyword">var</span> cacheWhitelist = [<span class="js-string">'pages-cache-v1'</span>, <span class="js-string">'posts-cache-v1'</span>];</code>
+			<code>  <span class="js-keyword">const</span> cacheWhitelist = [<span class="js-string">'pages-cache-v1'</span>, <span class="js-string">'posts-cache-v1'</span>];</code>
 			<code>  event.waitUntil(</code>
 			<code>    caches.keys().then(cacheNames => {</code>
 			<code>      <span class="js-return">return</span> Promise.all(</code>
